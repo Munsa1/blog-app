@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.6.9'
+ruby '3.1.1'
 
 # Add linters gem file
 gem 'rubocop', '>= 1.0', '< 2.0'
