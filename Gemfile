@@ -6,6 +6,8 @@ ruby '3.1.1'
 # Add linters gem file
 gem 'rubocop', '>= 1.0', '< 2.0'
 
+gem 'rails-controller-testing'
+
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem 'rails', '~> 7.0.2', '>= 7.0.2.2'
 
@@ -72,4 +74,8 @@ group :test do
   gem 'capybara'
   gem 'selenium-webdriver'
   gem 'webdrivers'
+end
+# Run against this stable release
+group :development, :test do
+  gem 'rspec-rails', '~> 5.0.0'
 end
