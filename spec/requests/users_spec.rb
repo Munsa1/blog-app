@@ -7,7 +7,7 @@ RSpec.describe 'Users', type: :request do
     end
 
     it 'renders correct placeholder text ' do
-      expect(response.body).to include('Users index page')
+      expect(response.body).to include('Here we have a list of all the users')
     end
 
     it 'renders correct template' do
@@ -27,7 +27,7 @@ RSpec.describe 'Users', type: :request do
     end
 
     it 'renders correct placeholder text ' do
-      expect(response.body).to include('Users show page')
+      expect(response.body).to include('Hi, this is the profile of a user')
     end
 
     it 'renders correct template' do

@@ -15,7 +15,7 @@ RSpec.describe 'Posts', type: :request do
     end
 
     it 'renders correct placeholder text' do
-      expect(response.body).to include('Posts index page')
+      expect(response.body).to include('List of all posts')
     end
   end
 end
@@ -35,7 +35,7 @@ RSpec.describe 'Posts', type: :request do
     end
 
     it 'renders correct placeholder text' do
-      expect(response.body).to include('Posts show page')
+      expect(response.body).to include('Find post by user')
     end
   end
 end
