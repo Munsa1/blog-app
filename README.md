@@ -17,6 +17,7 @@ A ruby on rails framework web application that shows posts and comments by users
 - Run `rails db:create`, and `rails db:migrate`  to create database.
 
 - Run `rails s` and go to http:localhost:3000 to view the app.
+- Run `rspec spec` to test the controllers.
 
 ## Built With
 
