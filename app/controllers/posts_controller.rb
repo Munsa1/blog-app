@@ -9,7 +9,7 @@ class PostsController < ApplicationController
     @user = User.find(params[:user_id])
     @post = Post.find(params[:id])
 
-    if @post.save 
+    if @post.save
       flash[:success] = 'Post was saved'
       redirect_to "/users/#{@post.user.id}/posts/"
     else
