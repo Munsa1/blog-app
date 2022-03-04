@@ -8,6 +8,10 @@ gem 'rubocop', '>= 1.0', '< 2.0'
 
 gem 'rails-controller-testing'
 
+gem 'bootstrap', '~> 5.1.3'
+gem 'jquery-rails'
+gem 'sassc-rails', '>= 2.1.0'
+
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem 'rails', '~> 7.0.2', '>= 7.0.2.2'
 
