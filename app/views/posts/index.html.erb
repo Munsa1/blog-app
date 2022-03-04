@@ -22,7 +22,7 @@
   <% @user.posts.each do |post| %>
 
   <div class = "bg-light card col-md-9 m-1  p-3 d-flex" >
-    <h3>Post# <%=  post.id %> </h3>
+    <h3>Post</h3>
     <p><%= post.title %></p>
     <p><%= post.text %></p>
 
@@ -34,14 +34,14 @@
 
   <div class = "card  bg-light col-md-9 mb-5  p-3 d-flex" >
     <% if post.five_last_comments.length > 0 %>
-      <h3>Comments for post# <%=  post.id %> </h3>
+      <h3>Comments for post</h3>
         <div>
             <% post.five_last_comments.each do |comment| %>
-                <p><%= comment.author.name %>: <%= comment.text %></p>
+                <p><%= comment.user.name %>: <%= comment.text %></p>
             <% end %>
         </div>
     <% else %>
-    <h3>No comments for post# <%=  post.id %> </h3>
+    <h3>No comments for post</h3>
     <% end %>
     <div class="row">
       <div class = "m-auto pb-2 d-flex" >
@@ -53,7 +53,6 @@
 
 
   </div>
-
   <%end%>
 
   <div class="row">
