@@ -1,5 +1,5 @@
 class Post < ActiveRecord::Base
-  belongs_to :author, class_name: 'User', foreign_key: :user_id
+  belongs_to :user, class_name: 'User', foreign_key: :user_id
   has_many :likes
   has_many :comments
 
@@ -12,6 +12,6 @@ class Post < ActiveRecord::Base
   private
 
   def update_posts_counter
-    author.increment!(:posts_counter)
+    user.increment!(:posts_counter)
   end
 end
