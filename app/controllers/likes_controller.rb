@@ -3,7 +3,7 @@ class LikesController < ApplicationController
 
   def create
     @post.likes.create(user_id: current_user.id)
-
+    flash[:success] = 'Post was liked'
     redirect_to "/users/#{@post.user_id}/posts/#{@post.id}"
   end
 
