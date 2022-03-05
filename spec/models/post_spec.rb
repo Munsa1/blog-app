@@ -15,7 +15,7 @@ RSpec.describe Post, type: :model do
     end
 
     it 'Title should be present' do
-      expect(subject.title).to eq("Title")
+      expect(subject.title).to eq('Title')
     end
 
     it 'Text should be nil' do
@@ -24,7 +24,7 @@ RSpec.describe Post, type: :model do
     end
 
     it 'Text should be present' do
-      expect(subject.text).to eq("text test")
+      expect(subject.text).to eq('text test')
     end
 
     it 'Title should be nil' do

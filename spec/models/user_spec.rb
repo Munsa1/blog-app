@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe User, type: :model do
   describe 'User model' do
-    subject { User.new(name: 'TestUser', bio: "simple bio", posts_counter: 0) }
+    subject { User.new(name: 'TestUser', bio: 'simple bio', posts_counter: 0) }
     before { subject.save }
 
     it 'User should be valid' do
@@ -10,12 +10,12 @@ RSpec.describe User, type: :model do
     end
 
     it 'User should be valid' do
-      expect(subject.bio).to eq("simple bio")
+      expect(subject.bio).to eq('simple bio')
     end
 
     it 'Name should be present' do
-      subject.name = "Testuser"
-      expect(subject.name).to eq("Testuser")
+      subject.name = 'Testuser'
+      expect(subject.name).to eq('Testuser')
     end
 
     it 'Posts_counter should be more or equal to 0' do
