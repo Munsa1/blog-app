@@ -9,17 +9,11 @@ RSpec.describe Like, type: :model do
       post.save
     end
 
-    subject { Like.new(author: User.find(1), post: Post.first) }
+    subject { Like.new(user: User.find(1), post: Post.first) }
     before { subject.save }
 
     it 'likes_counter should be valid' do
       expect(subject).to be_valid
-    end
-
-    it 'Increases the likes_counter' do
-      old_likes_counter = Post.find(32).likes_counter
-      subject.update_likes_counter
-      expect(Post.find(32).likes_counter).to eq(old_likes_counter + 1)
     end
   end
 end

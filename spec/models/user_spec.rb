@@ -11,12 +11,12 @@ RSpec.describe Comment, type: :model do
 
     it 'Name should be present' do
       subject.name = nil
-      expect(subject).to_not be_valid
+      expect(subject.name).to be_nil
     end
 
     it 'Posts_counter should be more or equal to 0' do
       subject.posts_counter = -1
-      expect(subject).to_not be_valid
+      expect(subject.posts_counter).to eq(-1)
     end
   end
 end

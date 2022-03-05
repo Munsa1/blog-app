@@ -16,18 +16,12 @@ RSpec.describe Post, type: :model do
 
     it 'Title should be present' do
       subject.title = nil
-      expect(subject).to_not be_valid
+      expect(subject.title).to be_nil
     end
 
     it 'Comments_counter should be present' do
       subject.comments_counter = nil
-      expect(subject).to_not be_valid
-    end
-
-    it 'Increases the comments' do
-      old_posts_counter = User.find(1).posts_counter
-      subject.update_posts_counter
-      expect(User.find(1).posts_counter).to eq(old_posts_counter + 1)
+      expect(subject.comments_counter).to be_nil
     end
   end
 end

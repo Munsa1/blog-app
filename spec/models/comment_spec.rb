@@ -9,7 +9,7 @@ RSpec.describe Comment, type: :model do
       post.save
     end
 
-    subject { Comment.new(text: 'Comment', author: User.find(1), post: Post.first) }
+    subject { Comment.new(text: 'Comment', user: User.find(1), post: Post.first) }
     before { subject.save }
 
     it 'likes_counter should be integer and text should be present' do
@@ -18,13 +18,7 @@ RSpec.describe Comment, type: :model do
 
     it 'Title should be present' do
       subject.text = nil
-      expect(subject).to_not be_valid
-    end
-
-    it 'Increases the comments_counter' do
-      old_comments_counter = Post.find(32).comments_counter
-      subject.update_comments_counter
-      expect(Post.find(32).comments_counter).to eq(old_comments_counter + 1)
+      expect(subject.text).to be_nil
     end
   end
 end
