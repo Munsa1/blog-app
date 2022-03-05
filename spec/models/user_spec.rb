@@ -1,17 +1,21 @@
 require 'rails_helper'
 
-RSpec.describe Comment, type: :model do
-  describe 'Comment model' do
-    subject { User.new(name: 'TestUser', posts_counter: 0) }
+RSpec.describe User, type: :model do
+  describe 'User model' do
+    subject { User.new(name: 'TestUser', bio: "simple bio", posts_counter: 0) }
     before { subject.save }
 
     it 'User should be valid' do
       expect(subject).to be_valid
     end
 
+    it 'User should be valid' do
+      expect(subject.bio).to eq("simple bio")
+    end
+
     it 'Name should be present' do
-      subject.name = nil
-      expect(subject.name).to be_nil
+      subject.name = "Testuser"
+      expect(subject.name).to eq("Testuser")
     end
 
     it 'Posts_counter should be more or equal to 0' do

@@ -15,13 +15,44 @@ RSpec.describe Post, type: :model do
     end
 
     it 'Title should be present' do
+      expect(subject.title).to eq("Title")
+    end
+
+    it 'Text should be nil' do
+      subject.text = nil
+      expect(subject.text).to be_nil
+    end
+
+    it 'Text should be present' do
+      expect(subject.text).to eq("text test")
+    end
+
+    it 'Title should be nil' do
       subject.title = nil
       expect(subject.title).to be_nil
     end
 
-    it 'Comments_counter should be present' do
+    it 'Title should be present' do
+      subject.title = nil
+      expect(subject.title).to be_nil
+    end
+
+    it 'Comments_counter should be nil' do
       subject.comments_counter = nil
       expect(subject.comments_counter).to be_nil
+    end
+
+    it 'Comments_counter should be present' do
+      expect(subject.comments_counter).to eq(1)
+    end
+
+    it 'Likes_counter should be present' do
+      expect(subject.likes_counter).to eq(0)
+    end
+
+    it 'Likes_counter should be nil' do
+      subject.likes_counter = nil
+      expect(subject.likes_counter).to be_nil
     end
   end
 end
