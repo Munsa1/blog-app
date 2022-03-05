@@ -7,7 +7,7 @@ RSpec.describe 'Users', type: :request do
     end
 
     it 'renders correct placeholder text ' do
-      expect(response.body).to include('Here we have a list of all the users')
+      expect(response.body).to include('List of all users')
     end
 
     it 'renders correct template' do
@@ -23,11 +23,11 @@ end
 RSpec.describe 'Users', type: :request do
   describe 'GET /show' do
     before(:each) do
-      get '/users/:id'
+      get '/users/1'
     end
 
     it 'renders correct placeholder text ' do
-      expect(response.body).to include('Hi, this is the profile of a user')
+      expect(response.body).to include("TestUser's 3 recent posts:")
     end
 
     it 'renders correct template' do

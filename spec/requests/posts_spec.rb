@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe 'Posts', type: :request do
   describe 'GET /index' do
     before(:each) do
-      get '/users/:user_id/posts'
+      get '/users/1/posts'
     end
 
     it 'http request is successfull' do
@@ -15,7 +15,7 @@ RSpec.describe 'Posts', type: :request do
     end
 
     it 'renders correct placeholder text' do
-      expect(response.body).to include('List of all posts')
+      expect(response.body).to include('Number of posts:')
     end
   end
 end
@@ -23,7 +23,7 @@ end
 RSpec.describe 'Posts', type: :request do
   describe 'GET /index' do
     before(:each) do
-      get '/users/:user_id/posts/:id'
+      get '/users/1/posts/1'
     end
 
     it 'http request is successfull' do
@@ -35,7 +35,7 @@ RSpec.describe 'Posts', type: :request do
     end
 
     it 'renders correct placeholder text' do
-      expect(response.body).to include('Find post by user')
+      expect(response.body).to include('Post# 1 by TestUser')
     end
   end
 end
