@@ -6,6 +6,9 @@ ruby '3.1.1'
 # Add linters gem file
 gem 'rubocop', '>= 1.0', '< 2.0'
 
+# Add devise
+gem 'devise'
+
 gem 'rails-controller-testing'
 
 gem 'bootstrap', '~> 5.1.3'
