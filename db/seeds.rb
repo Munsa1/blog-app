@@ -8,7 +8,11 @@
 5.times do |i|
   user = User.create(
 	  name: "user#{i}",
-	  bio: "I am user#{i}"
+	  bio: "I am user#{i}",
+	  email: "user#{i}@email.com",
+	  password: "password",
+	  password_confirmation: "password",
+	  confirmed_at: Date.today
   	)
 	# create 5 posts for each user
 	5.times do |j|
