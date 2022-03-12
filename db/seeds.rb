@@ -14,20 +14,17 @@
 	  password_confirmation: "password",
 	  confirmed_at: Date.today
   	)
-	# create 5 posts for each user
 	5.times do |j|
-		post = Post.create(
+		post = user.posts.create(
 			title: "post#{j}",
-			text: "I am post#{j}",
-			user: user
-			)
+			body: "I am post#{j}"
+		)
+		user.likes.create(post: post)
 			3.times do |j|
-				Comment.create(
-					text: "I am comment#{j}",
-					user: user,
-					post: post
+				post.comments.create(
+					body: "comment#{j}",
+					user: user
 				)
 			end
-			post.likes.create(user: user)
 		end
 end
