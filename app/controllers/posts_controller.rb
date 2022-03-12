@@ -1,13 +1,14 @@
 class PostsController < ApplicationController
   def index
     @user = User.find(params[:user_id])
-    @posts = @user.posts.includes(:comments)
-    @current_user = current_user
+    @posts = @user.posts
   end
 
   def show
     @user = User.find(params[:user_id])
-    @post = Post.find(params[:id])
+    @post = @user.posts.includes(:comments).find(params[:id])
+    @comments = @post.comments.all.order('created_at')
+    @liked = @post.liked? current_user.id
   end
 
   def new
@@ -16,15 +17,16 @@ class PostsController < ApplicationController
 
   def create
     @post = current_user.posts.new(post_params)
-    @post.likes_counter = 0
-    @post.comments_counter = 0
-    @user = current_user
-    if @post.save
-      flash[:success] = 'Post was saved'
-      redirect_to "/users/#{@post.user.id}/posts/"
-    else
-      render :new
-      flash.now[:alert] = 'ERROR. ERROR.'
+
+    respond_to do |format|
+      format.html do
+        if @post.save
+          redirect_to user_post_path(@post.user.id, @post.id), notice: 'Post was successfully created.'
+        else
+          flash[:alert] = 'Post was not created.'
+          render :new
+        end
+      end
     end
   end
 

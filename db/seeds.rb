@@ -3,21 +3,27 @@
 #
 # Examples:
 #
-#   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
-#   Character.create(name: "Luke", movie: movies.first)
-# 
-user1 = User.create(name: 'Tom', photo: 'https://unsplash.com/photos/F-0BxGuVvo', bio: 'Teacher from Mexico.')
-user2 = User.create(name: 'Lilly', photo: 'https://unsplash.com/photos/F-0BxGuVvo', bio: 'Teacher from Poland.')
-user3 = User.create(name: 'Anna', photo: 'https://unsplash.com/photos/F-0BxGuVvo', bio: 'Teacher from Poland.')
-
-post1 = Post.create(user: User.first, title: 'Hello', text: 'This is my first post')
-post1 = Post.create(user: User.second, title: 'Hello', text: 'This is my second post')
-post1 = Post.create(user: User.third, title: 'Hello', text: 'This is my third post')
-post1 = Post.create(user: User.first, title: 'Hello all', text: 'This is my fifth post')
-
-comment1 = Comment.create(post: Post.first,user: User.first, text: 'Hi Tom!' )
-comment2 = Comment.create(post: Post.first,user: User.first, text: 'Hi Tom!' )
-comment3 = Comment.create(post: Post.second,user: User.second, text: 'Hi Lilly!' )
-comment4 = Comment.create(post: Post.second,user: User.second, text: 'Hi Lilly!' )
-comment5 = Comment.create(post: Post.third,user: User.third, text: 'Hi Anna!' )
-comment5= Comment.create(post: Post.third,user: User.third, text: 'Hi Anna!' )
+#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
+#   Character.create(name: 'Luke', movie: movies.first)
+5.times do |i|
+  user = User.create(
+	  name: "user#{i}",
+	  bio: "I am user#{i}"
+  	)
+	# create 5 posts for each user
+	5.times do |j|
+		post = Post.create(
+			title: "post#{j}",
+			text: "I am post#{j}",
+			user: user
+			)
+			3.times do |j|
+				Comment.create(
+					text: "I am comment#{j}",
+					user: user,
+					post: post
+				)
+			end
+			post.likes.create(user: user)
+		end
+end

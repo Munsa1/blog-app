@@ -1,12 +1,8 @@
-class Comment < ActiveRecord::Base
-  belongs_to :user, class_name: 'User', foreign_key: :user_id
-  belongs_to :post
+class Comment < ApplicationRecord
+  belongs_to :user
+  belongs_to :post, counter_cache: :comments_counter
 
-  after_save :update_comments_counter
-
-  private
-
-  def update_comments_counter
-    post.increment!(:comments_counter)
+  def update_count(count)
+    post.update(comments_counter: count)
   end
 end

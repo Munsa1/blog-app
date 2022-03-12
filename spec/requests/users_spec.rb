@@ -1,41 +1,27 @@
 require 'rails_helper'
 
 RSpec.describe 'Users', type: :request do
-  describe 'GET /index' do
-    before(:each) do
-      get '/users'
+  describe 'GET #index' do
+    before(:example) { get users_path }
+
+    it 'return correct response status' do
+      expect(response).to have_http_status(:ok)
     end
 
-    it 'renders correct placeholder text ' do
-      expect(response.body).to include('Here we have a list of all the users')
-    end
-
-    it 'renders correct template' do
-      expect(response).to render_template(:index)
-    end
-
-    it "'http request is successfull" do
-      expect(response).to have_http_status(:success)
+    it 'should return the rendered template' do
+      expect(response).to render_template('index')
     end
   end
-end
 
-RSpec.describe 'Users', type: :request do
-  describe 'GET /show' do
-    before(:each) do
-      get '/users/:id'
+  describe 'GET #show' do
+    before(:example) { get user_path(1) }
+
+    it 'eturn correct response status' do
+      expect(response).to have_http_status(:ok)
     end
 
-    it 'renders correct placeholder text ' do
-      expect(response.body).to include('Hi, this is the profile of a user')
-    end
-
-    it 'renders correct template' do
-      expect(response).to render_template(:show)
-    end
-
-    it "'http request is successfull" do
-      expect(response).to have_http_status(:success)
+    it 'should return the rendered template' do
+      expect(response).to render_template('show')
     end
   end
 end
