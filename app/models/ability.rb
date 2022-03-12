@@ -7,10 +7,14 @@ class Ability
     if user.admin?
       can :manage, :all
     else
-      can :read, :all
-      can :create, [Comment, Post]
-      can :update, [Comment, Post], user: user
-      can :destroy, [Comment, Post], user:
+      can :destroy, Post do |post|
+        post.user == user
+      end
+
+      can :destroy, Comment do |comment|
+        comment.user == user
+      end
+      can %i[read create], :all
     end
   end
 end
