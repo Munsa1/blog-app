@@ -6,7 +6,7 @@ RSpec.feature 'User #Show', type: :feature do
     @user1 = User.create(name: 'Munsa mibenge', bio: 'Software Developer',
                          photo: 'http://www.pselaw.com/wp-content/uploads/2016/08/pokemon-150x150.jpg',
                          email: 'mmunsamibenge65@gmail.com', password: 'password', confirmed_at: Time.now)
-    
+
     within 'form' do
       fill_in 'Email', with: @user1.email
       fill_in 'Password', with: @user1.password

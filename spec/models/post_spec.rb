@@ -1,5 +1,5 @@
 require 'rails_helper'
-
+# rubocop:disable Metrics/BlockLength
 RSpec.describe Post, type: :model do
   describe 'validations' do
     subject { FactoryBot.build :post }
@@ -46,4 +46,5 @@ RSpec.describe Post, type: :model do
       expect(subject.user.posts_counter).to be(2)
     end
   end
+  # rubocop:enable Metrics/BlockLength
 end
