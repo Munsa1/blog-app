@@ -30,4 +30,8 @@
   .container {
     width: 50%;
   }
+
+  .field {
+    width: 100%;
+  }
 }
