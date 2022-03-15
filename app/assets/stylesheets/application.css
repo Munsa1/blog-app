@@ -17,8 +17,6 @@
 .list {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
   gap: 15px;
 }
 
@@ -29,9 +27,5 @@
 @media screen and (min-width: 992px) {
   .container {
     width: 50%;
-  }
-
-  .field {
-    width: 100%;
   }
 }
