@@ -15,6 +15,10 @@ class Ability
         comment.user == user
       end
       can %i[read create], :all
+      can :read, :all
+      can :create, [Comment, Post]
+      can :update, [Comment, Post], user: user
+      can :destroy, [Comment, Post], user: user
     end
   end
 end

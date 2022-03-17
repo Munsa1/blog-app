@@ -1,4 +1,5 @@
 <div class="content">
+<<<<<<< HEAD
   <div class="media-content">
     <div class="content">
       <strong><%= @user.name %></strong>
@@ -6,6 +7,15 @@
       <p class="is-size-7"><%= t('comments_counter', count: @post.comments_counter) %>, <%= t('likes_counter', count: @post.likes_counter) %></p>
       <%= render 'header' %>
     </div>
+=======
+<div class="media-content">
+<div class="content">
+  <strong><%= @user.name %></strong>
+  <p class="is-size-7 is-italic"><%= t('posted_on', date: @post.created_at.to_s(:nice_date)) %></p>
+      <p class="is-size-7"><%= t('comments_counter', count: @post.comments_counter) %>, <%= t('likes_counter', count: @post.likes_counter) %></p>
+      <%= render 'header' %>
+      </div>
+>>>>>>> dev
   </div>
   <div class="content">
     <h1><%= @post.title %></h1>
