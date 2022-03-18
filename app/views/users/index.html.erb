@@ -1,10 +1,6 @@
 <div class="columns is-flex-direction-column">
   <% @users.each do |user| %>
-<<<<<<< HEAD
     <%= link_to user_path(user.id), class: "column", id: user.id do %>
-=======
-    <%= link_to user_path(user.id), class: "column" do %>
->>>>>>> dev
       <%= render partial: "user", object: user %>
     <% end %>
   <% end %>

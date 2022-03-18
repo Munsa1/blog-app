@@ -11,8 +11,8 @@ class Post < ApplicationRecord
     comments.last(limit)
   end
 
-  def liked?(user_id_liked)
-    likes.where(user_id: user_id_liked).exists?
+  def liked?(user_id)
+    likes.where(user_id: user_id).exists?
   end
 
   def update_count(count)

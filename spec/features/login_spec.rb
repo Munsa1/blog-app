@@ -1,5 +1,5 @@
 require 'rails_helper'
-# rubocop:disable Metrics/BlockLength
+
 RSpec.describe 'Log in', type: :feature do
   describe 'index page for users' do
     it 'has the "Log in" button' do
@@ -49,5 +49,4 @@ RSpec.describe 'Log in', type: :feature do
       expect(page).to have_current_path(root_path)
     end
   end
-  # rubocop:enable Metrics/BlockLength
 end
