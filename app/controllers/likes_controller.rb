@@ -16,6 +16,7 @@ class LikesController < ApplicationController
 
   def destroy
     post = Post.find(params[:id])
+
     respond_to do |format|
       if post.users.delete(current_user)
         format.html { redirect_to user_post_path(post.user.id, post.id) }
